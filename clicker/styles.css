@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.app-container {
+    width: 78.0mm;
+    height: 167.7mm;
+    padding: 20px;
+}
+
+.counter-app {
+    background-color: #000;
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.count-display {
+    background-color: #333;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+#counter {
+    font-size: 4rem;
+}
+
+.action-buttons, .nav-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 10px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.kaaba-image {
+    margin: 20px 0;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.kaaba-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: white;
+}
+
+.nav-buttons button {
+    transition: transform 0.2s ease, color 0.2s ease;
+    position: relative;
+}
+
+.nav-buttons button::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #4CAF50;
+    transition: width 0.2s ease;
+}
+
+/* Active state for current page */
+.nav-buttons button.active {
+    transform: translateY(-5px);
+    color: #4CAF50;
+}
+
+.nav-buttons button.active::after {
+    width: 100%;
+}
+
+/* Click animation for other buttons */
+.nav-buttons button:active:not(.active) {
+    transform: translateY(-5px);
+    color: #4CAF50;
+}
+
+.nav-buttons button:active:not(.active)::after {
+    width: 100%;
+}
+
+.settings-link {
+    margin-left: 15px;
+    color: inherit;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.settings-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+}
+
+.back-button {
+    color: inherit;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.settings-section {
+    padding: 20px;
+}
+
+.settings-select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.settings-app {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Add these RTL-specific styles */
+[dir="rtl"] .settings-link {
+    margin-left: 0;
+    margin-right: 15px;
+}
+
+[dir="rtl"] .back-button {
+    transform: rotate(180deg);
+}
+
+[dir="rtl"] .settings-header {
+    flex-direction: row-reverse;
+}

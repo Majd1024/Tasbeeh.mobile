@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhikr Menu</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .dhikr-list {
+            padding: 20px;
+        }
+        .dhikr-option {
+            background-color: #333;
+            color: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: left;
+            border: none;
+            width: 100%;
+            font-size: 1.1rem;
+        }
+        .dhikr-option:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <div class="counter-app">
+            <h1>Select Dhikr</h1>
+            
+            <div class="dhikr-list">
+                <button class="dhikr-option" data-dhikr="subhanAllah">
+                    <span class="dhikr-text" data-dhikr="subhanAllah">SubhanAllah</span>
+                </button>
+                <button class="dhikr-option" data-dhikr="alhamdulillah">
+                    <span class="dhikr-text" data-dhikr="alhamdulillah">Alhamdulillah</span>
+                </button>
+                <button class="dhikr-option" data-dhikr="allahuAkbar">
+                    <span class="dhikr-text" data-dhikr="allahuAkbar">Allahu Akbar</span>
+                </button>
+                <button class="dhikr-option" data-dhikr="astagfirullah">
+                    <span class="dhikr-text" data-dhikr="astagfirullah">Astagfirullah</span>
+                </button>
+                <button class="dhikr-option" data-dhikr="lailahaillallah">
+                    <span class="dhikr-text" data-dhikr="lailahaillallah">La ilaha illallah</span>
+                </button>
+            </div>
+
+            <div class="nav-buttons">
+                <button id="save"><i class="fas fa-save"></i></button>
+                <button id="home"><i class="fas fa-home"></i></button>
+                <button id="menu" class="active"><i class="fas fa-list"></i></button>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Add click handlers for dhikr options
+        const dhikrOptions = document.querySelectorAll('.dhikr-option');
+        dhikrOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const selectedDhikr = option.dataset.dhikr;
+                localStorage.setItem('selectedDhikr', selectedDhikr);
+                window.location.href = 'index.html';
+            });
+        });
+
+        // Add navigation handlers
+        document.getElementById('home').addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+
+        document.getElementById('menu').addEventListener('click', () => {
+            window.location.href = 'menu.html';
+        });
+    </script>
+</body>
+</html> 
